@@ -1,0 +1,1705 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-black: hsl(0, 0%, 10%);
+  --color-darks: hsl(0, 0%, 25%);
+  --color-greys: hsl(0, 0%, 60%);
+  --color-light: hsl(0, 0%, 95%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --color-blue-100: hsl(217, 91%, 65%);
+  --color-blue-200: hsl(221, 83%, 55%);
+  --color-blue-300: hsl(224, 76%, 45%);
+
+  --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+/* ====================================navbar================================== */
+
+main {
+  overflow: hidden;
+}
+
+a,
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  text-transform: unset;
+}
+
+.section {
+  margin: 0 auto;
+  padding: 5rem 0 2rem;
+}
+
+.container {
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.size{
+    display: flex;
+        justify-content: space-between;
+        gap: 12px;
+}
+
+.brand {
+  font-family: inherit;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: var(--color-blue-200);
+}
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.507);
+    box-shadow: var(--shadow-medium);
+ }
+ 
+ 
+.banner {
+   
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+  }
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 4rem;
+  margin: 0 auto;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  z-index: 10;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu.is-active {
+  top: 0;
+  left: 0;
+}
+
+.menu-inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+  margin: 1.25rem;
+}
+
+.menu-link {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-white);
+  transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+  color: rgb(158, 155, 154);
+}
+
+.burger {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  order: -1;
+  width: 50px;
+  height: auto;
+  border: 1px solid rgb(66, 64, 64);
+  padding: 2px;
+  border-radius: 5px;
+  outline: none;
+  visibility: visible;
+  margin: 5px;
+}
+
+.burger-line {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  height: 2px;
+  margin: 6px auto;
+  transform: rotate(0deg);
+  border-radius: 1rem;
+  background: rgb(224, 219, 219);
+  box-shadow: 1px 2px 10px rgb(216, 211, 211);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+.overlay.is-active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-toggle,
+.search-cancel {
+  display: block;
+  cursor: pointer;
+  font-size: 1.45rem;
+  line-height: inherit;
+  color: var(--color-black);
+}
+
+.search-block {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+  background-color: var(--color-white);
+  transition: all 0.35s ease-in-out;
+}
+
+.input-icons i {
+  padding-left: 5px;
+  color: rgba(151, 146, 146, 0.438);
+  position: relative;
+  left: 30px;
+}
+
+.research-form {
+  display: flex;
+  align-items: center;
+  column-gap: 0px;
+  padding: 0.75rem 1rem;
+}
+
+.research-input {
+  display: block;
+  font-family: inherit;
+  font-weight: 400;
+  width: 300px;
+  height: auto;
+  padding: 12px 35px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  color: var(--color-white);
+  background-color: rgba(0, 0, 0, 0.637);
+  font-size: 12px;
+}
+
+input[type="text"]:not(:placeholder-shown)::placeholder {
+  font-size: 10px;
+}
+
+img,
+video {
+  display: block;
+  width: 100%;
+  height: 350px;
+}
+
+.new {
+  background-color: orangered;
+  padding: 4px;
+}
+
+/* ====================================navbar================================== */
+
+/* ==================================== banner ================================== */
+
+.places {
+  color: aliceblue;
+  font-size: 35px;
+  padding-top: 200px;
+  
+   
+}
+
+.name {
+  padding-top: 160px;
+  font-size: 13px;
+}
+
+/* ==================================== banner ================================== */
+
+/* ====================================modal ================================== */
+button {
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999999;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.from-img{
+  height: 200px;
+  width: 100%;
+}
+
+.close-btn {
+  font-size: 40px;
+  color: #888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.travel {
+  width: 300px;
+}
+
+.form-group {
+  display: flex;
+  position: relative;
+  margin: 20px;
+  max-width: 500px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 12px 12px 12px;
+  font-size: 16px;
+  border: 2px solid #848286;
+  border-radius: 6px;
+  outline: none;
+  background: none;
+}
+
+.form-label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background-color: white;
+  padding: 0 4px;
+  color: #848286;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(0);
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-22px);
+  font-size: 13px;
+  color: #6a0dad;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #444;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #1e40af;
+}
+
+/* ====================================modal ================================== */
+
+/*=============================== Tourist Places  ============================= */
+.visit {
+  background-color: #fffdfd;
+  height: auto;
+  width: 100%;
+  padding: 40px;
+}
+
+/* READ MORE */
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-wrap {
+  margin: 0;
+  font-size: 13px;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  transition: 0.25s ease;
+  line-height: 30px;
+  padding: 0px;
+}
+
+.read-more-state:checked ~ .read-more-target {
+  opacity: 1;
+  font-size: 13px;
+  max-height: 999em;
+  text-align: justify;
+}
+
+.read-more-state ~ .read-more-trigger::before {
+  content: "Read more";
+}
+
+.read-more-state:checked ~ .read-more-trigger::before {
+  content: "Read less";
+}
+
+.read-more-trigger {
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  color: #f7d40d;
+  font-size: 14px;
+  float: right;
+}
+
+.read-more-trigger:hover {
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  color: #f4f4f7;
+  font-size: 13px;
+  background-color: orangered;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#here-tag {
+  font-size: 27px;
+  display: visible;
+}
+/*=============================== Tourist Places  ============================= */
+
+/*=============================== Get offer  ============================= */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: orangered;
+  border-radius: 50%;
+  z-index: 999999;
+}
+
+.mazer {
+  transition: height 0.5s ease;
+  height: 200px; /* Initial height */
+  background-color: #e0e0e0;
+  margin: 50px auto;
+}
+.sticky-element {
+  position: sticky;
+  top: 0;
+  max-width: 1080px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0 auto;
+  z-index: 999999;
+}
+
+.sticky-element.scrolled {
+   max-width: 100%;
+   transition: 1s;
+  }
+.sticky-style{
+    width: 100%;
+}
+
+.sticky-element.scrolled .get-offer{
+    border: none;
+    box-shadow: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticky-element.scrolled .get-offer img{
+   height: 50px;
+   width: 50px;
+   justify-content: center;
+   position: relative;
+   right: 200px;
+}
+
+.sticky-element.scrolled .get-offer-line{
+    color: orangered;
+    font-size: 10px;
+    justify-content: center;
+    position: relative;
+    right: 200px;
+    bottom: 10px;
+}
+
+.sticky-element.scrolled .get-offer-button a{
+    float: right;
+    padding: 10px 20px ;
+    font-family: 12px;
+    position: relative;
+    top:5px;
+     
+}
+
+.get-offer {
+  background-color: #fff;
+  border: 1px solid orangered;
+  padding: 10px;
+  display: flex;
+  box-shadow: 1px 2px 10px orangered;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+.get-offer img {
+  height: 85px;
+  width: 85px;
+  border-radius: 10px;
+} 
+
+.get-offer-line {
+  color: orangered;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.get-offer-line p {
+  color: #444;
+}
+
+.get-offer-button a {
+  background-image: linear-gradient(80deg, rgb(248, 129, 31), red);
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  left: 130px;
+  top: 30px;
+  float: center;
+}
+
+/*=============================== Get offer  ============================= */
+
+/*===============================  Adventure of Rishikesh  ============================= */
+.day{
+  color: #fdfcfc;
+  position: relative;
+  top: 130px;
+  font-size: 13px;
+  content: "";
+  background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1.9));
+  
+}
+
+.product-card {
+    width: 230px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.6s ease;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+.product-card:hover {
+   transform: scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+   
+
+
+.product-card-ghat{
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 330px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.6s ease;
+    cursor: pointer
+    ;
+}
+
+.product-card-ghat:hover {
+    transform: scale(0.95);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  }
+
+.product-image-ghat{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-info {
+ margin: 10px;
+
+}
+
+.product-title {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #070707;
+  line-height: 17px;
+}
+
+.product-price {
+  font-size: 13px;
+  color: #080808;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.buy-button {
+  display: inline-block;
+  padding: 4px 70px;
+  text-align: center;
+  background-color: orangered;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.buy-button:hover {
+  background-color: #f5630f;
+}
+
+
+.buy-now {
+  display: inline-block;
+  padding: 2px;
+  width: 100%;
+  text-align: center;
+  background-color: orangered;
+  color: white;
+  font-size: 13px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+.checked {
+  color: orange;
+}
+
+.rate {
+  color: #888;
+  font-size: 11px;
+}
+
+.price-cut{
+    color: #afaaaa;
+text-decoration-line: line-through; 
+ font-size: 13px;
+ padding-top: 5px;
+}
+
+.reshikesh {
+  color: #3f3b3b;
+  font-size: 20px;
+  padding-top: 15px;
+}
+
+.Explore {
+  color: #000;
+  font-size: 20px;
+  float: right;
+  color: orangered;
+  font-weight: 700;
+}
+
+.adventure {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items:center ;
+  
+}
+
+.adventure-slider {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  gap: 20px;
+}
+.time {
+  margin-top: 0px;
+  font-size: 13px;
+  color: rgb(5, 5, 5);
+   
+}
+ 
+
+/*===============================  Adventure of Rishikesh  ============================= */
+
+
+/* ==============================  Triveni Ghat =======================================*/
+
+.all{
+    width: 100%;
+   
+}
+.details{
+    height: 100px;
+    border-left: 4px solid rgb(248, 59, 11);
+  
+
+}
+.triveni-ghat{
+ margin-top: 40px;
+ 
+}
+
+.triveni-ghat img{
+    height: 450px;
+}
+
+.number{
+   font-size: 60px;
+   padding: 20px;
+   color: orangered;
+}
+
+.ghat{
+    font-size: 26px;
+    font-weight: 700;
+    position: relative;
+    bottom: 10px;
+}
+
+.write{
+    font-size: 14px;
+    padding: 30px;
+    position: relative;
+
+}
+.write p::before {
+    position: absolute;
+    height: 90px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 1.5));
+}
+
+.read-button{
+  float: right;
+  font-size: 13px;
+  font-weight: bold;
+  color: rgb(238, 5, 5);
+  z-index: 9999;
+  position: relative;
+}
+
+.read-button:hover{
+  background-color: orangered;
+  padding: 5px 23px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.line{
+    border-bottom: 2px solid rgb(211, 203, 203);
+}
+
+.photo{
+    border: 1px solid rgb(224, 216, 216);
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+    
+}
+.photo img{
+    height: 500px ;
+    width: 100%;
+}
+
+.photo:hover {
+        animation: zoom-in-zoom-out 2s ease-in-out infinite;
+        border-radius: 10px;
+  }
+
+.top-head{
+    color: #6d6a6a;
+    font-size: 24px;
+    padding-top: 20px;
+}
+
+.top {
+    padding: 30px;
+}
+
+.back-color{
+    background-color: white;
+}
+
+.card-rate{
+    display: flex;
+    border: 1px solid rgb(240, 230, 230);
+}
+
+.card-image img{
+    height: 150px;
+    width: 200px;
+}
+
+.card-title{
+    padding: 20px;
+}
+
+.card-detail{
+    text-align: center;
+    height: 150px;
+    border-left: 1px solid rgb(241, 232, 232);
+    position: relative;
+    left: 40px;
+    padding-left: 30px; 
+    padding-top: 20px;
+    
+}
+
+
+.form{
+    margin-top: 50px;
+}
+ 
+ 
+.enquire-form {
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.send input{
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.send textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.send select{
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+ 
+.phone-group {
+    display: flex;
+    align-items: center;
+}
+
+.phone-group select {
+    width: 30%;
+    margin-right: 5%;
+}
+
+.massage {
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+.massage:hover {
+    background-color: darkorange;
+}
+
+.Articles{
+   
+    background-color: white;
+}
+
+.all-articles{
+    padding: 40px;
+}
+.artical-image img{
+     height: 100px;
+     width: 100px;
+}
+
+.artical-link a{
+    color: orangered;
+    position: relative;
+    font-size: 15px;
+     left: 13px;
+     line-height: 20px;
+     text-decoration: underline;
+}
+
+/* ==============================  Triveni Ghat =======================================*/
+
+/*================= People Also Ask About Rishikesh =====================*/
+
+.sticky-form {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.sticky-form.scrolled {
+  position: fixed;
+  top: 20px;
+  width: 270px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border-radius: 8px;
+}
+
+.vir-line{
+    height: 50px;
+    border-left: 4px solid rgb(248, 59, 11);
+    padding-top: 2px;
+    padding-left: 10px;
+    
+}
+.art{
+    margin: 40px;
+    font-size: 20px;
+}
+  
+.about-rishikesh{
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.alout-line{
+  padding: 60px
+}
+
+.vi-line{
+  height: 50px;
+  border-left: 4px solid rgb(248, 59, 11);
+  position: relative;
+  right: 60px;
+}
+.about{
+  position: relative;
+  left: 60px;
+  top: 10px;
+  font-size: 20px;
+  color: #6d6a6a;
+}
+
+.count h3{
+  margin-top: 50px;
+  border: 2px solid red;
+  padding: 25px;
+  border-radius: 50%;
+  width: 80px;
+}
+
+.count strong{
+  position: relative;
+  left: 130px;
+  bottom: 50px;
+}
+
+.people{
+  font-size: 14px;
+  
+}
+/*================= People Also Ask About Rishikesh =====================*/
+
+
+/*================================= Rishikesh Travel Guides =========================*/
+
+.guide {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 300px;
+ margin-top: 30px;
+ cursor: pointer;
+}
+
+.guide:hover {
+  transform: scale(1.03);
+}
+
+.guide-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.guide-content {
+  padding: 15px;
+}
+
+.guide-content h3 {
+  font-size: 12px;
+  color: #585353;
+}
+/*================================= Rishikesh Travel Guides =========================*/
+
+/*=================================all-review=========================*/
+.all-review {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px; 
+  gap:30px;
+}
+
+.review-card {
+  background: white;
+  width: 100%;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.review-title {
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.activity-title {
+  color: #ff5a00;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.rating {
+  color: #ffb400;
+  font-size: 14px;
+  margin: 0;
+}
+
+.review-text {
+  font-size: 12px;
+  color: #444;
+  margin: 16px 0;
+  padding-top: 20px;
+}
+
+.photo-grid {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.photo-grid img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.photo-more {
+  width: 80px;
+  height: 60px;
+  background: #ff5a00;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/*=================================all-review=========================*/
+
+
+/*=================================Popular Nearby Places Around Rishikesh=========================*/
+.populer{
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.popular-place a{
+    color: orangered;
+    border: 1px solid red;
+    padding: 5px 23px; 
+    line-height: 40px;
+    margin: 5px;
+    font-size: 13px;
+}
+
+.popular-place a:hover{
+  background-color: orangered;
+  color: #fff;
+}
+
+.offer-from img{
+  height: 150px;
+}
+/*========================= Popular Nearby Places Around Rishikesh ==============================*/
+
+
+/*========================= Popular Nearby Places Around Rishikesh ==============================*/
+.footer {
+  background-color: #2e3135;
+  color: white;
+   
+}
+
+.footer-container {
+  background: white;
+  border-radius: 16px;
+  padding: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+  bottom: 70px;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px 20px;
+  min-width: 180px;
+}
+
+.footer-section h4 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  font-size: 13px;
+  color: #555;
+  margin: 6px 0;
+  cursor: pointer;
+}
+
+.footer-section ul li:hover {
+  text-decoration: underline;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.destination-grid .dest {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.destination-grid img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.destination-grid .dest:hover img {
+  transform: scale(1.1);
+}
+
+.destination-grid .label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-logo {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.footer-logo img {
+  height: 30px;
+  margin-right: 8px;
+  width: 100px;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons i {
+  font-size: 20px;
+  margin: 0 12px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.social-icons i:hover {
+  color: #ff5a00;
+}
+
+
+/*========================= Popular Nearby Places Around Rishikesh ==============================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================navbar ================================== */
+@media only screen and (min-width: 48rem) {
+  .burger {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+
+   
+  .menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    background: none;
+    box-shadow: none;
+  }
+
+  .menu-inner {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.75rem;
+    margin: 0 auto;
+    margin-right: 5rem;
+  }
+  .menu-block {
+    margin-left: 2rem;
+  }
+}
+/* ==================================== navbar ================================== */
+@media only screen and (max-width: 992px) {
+
+  #header{
+    background-color: white;
+   }
+
+   .burger-line{
+    background: orangered;
+   }
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .top-head{
+    font-size: 18px;
+  }
+
+  .places {
+    color: aliceblue;
+    font-size: 25px;
+    position: relative;
+    bottom: 20px;
+  }
+  .menu-link {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--color-black);
+    transition: all 0.3s ease;
+  }
+  .brand {
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    color: var(--color-blue-200);
+  }
+
+  
+}
+/* ==================================== navbar ================================== */
+
+
+
+@media (max-width: 768px) {
+  .buy-now{
+    font-size: 10px;
+  }
+  .adventure-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .offer-from{
+    display: none ;
+  }
+
+  .product-card-ghat {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-width: 80%;
+  }
+
+  .adventure-slider::-webkit-scrollbar {
+    display: none;
+    padding: 20px;
+  }
+
+  .adventure-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+     
+  }
+
+  .details{
+     height: 60px;
+  }
+
+  .ghat{
+    font-size: 12px;
+  }
+
+  .number{
+    font-size: 35px;
+  }
+  .triveni-ghat img {
+    height: 300px;
+}
+
+  .reshikesh{
+    font-size: 12px;
+  }
+  .Explore{
+    font-size: 12px;
+  }
+
+  .enquire-form{
+    display: none;
+  }
+
+  .Articles{
+    display: none;
+  }
+  .adventure{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  .all-review{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+.card-image img{
+  height: 100px;
+  width: 100px;
+}
+
+.card-title{
+  padding: 10px;
+  font-size: 10px;
+}
+
+.card-detail{
+  padding-top: 0px;
+  padding-left: 0px;
+  text-align: center;
+  border-left: none;
+  position: relative;
+  left: 0px;
+  
+}
+
+.buy-button{
+  font-size: 12px;
+}
+.rate{
+  display: none;
+}
+
+.name {
+  padding-top: 140px;
+  font-size: 10px;
+}
+.photo img{
+  height: 300px;
+}
+.photo-more {
+  width: 40px;
+  height: 36px;
+  font-size: 14px;
+}
+
+.photo-grid img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.count h3{
+  margin-top: 40px;
+  border: 2px solid red;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+}
+
+.count strong{
+  position: relative;
+  left: 65px;
+  bottom: 50px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.sticky-element.scrolled .get-offer img{
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  top: 0px;
+  position: relative;
+  right: 10px;
+}
+
+.sticky-element.scrolled .get-offer-line {
+   color: orangered;
+   font-size: 10px;
+   justify-content: center;
+   padding-top: 1px;
+   position: relative;
+   right: 10px;
+  
+}
+
+.get-offer img{
+  height:40px;
+  width:40px;
+}
+
+.get-offer-line h2{
+  color: orangered;
+  padding-left: 0px;
+  padding-top: 0px;
+  font-size: 10px;
+}
+
+.get-offer-line p{
+   font-size: 5px;
+}
+
+.get-offer-button a {
+  float: right;
+  background-image: linear-gradient(80deg, rgb(248, 129, 31), red);
+  padding: 7px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 10px;
+  color: #fff;
+  position: relative;
+  left: 10px;
+  top: 0px;
+}
+
+.research-input{
+  width: 100%;
+}
+
+.vi-line {
+  height: 50px;
+  border-left: 4px solid rgb(248, 59, 11);
+  position: relative;
+  right: 20px;
+}
+
+.alout-line{
+  padding: 20px
+}
+
+
+.about {
+  position: relative;
+  left: 23px;
+
+}
+.footer-container{
+  padding: 10px;
+}
+}
